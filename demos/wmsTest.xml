@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://schemas.opengis.net/wms/1.1.1/WMS_MS_Capabilities.dtd"
+ [
+ <!ELEMENT VendorSpecificCapabilities EMPTY>
+ ]>
+<WMT_MS_Capabilities version="1.1.1">
+<Service>
+  <Name>OGC:WMS</Name>
+  <Title>SCW-Toporama</Title>
+  <Abstract>Le service de cartes Web Toporama (SCW-Toporama) du Secteur des sciences de la Terre (SST) de Ressources naturelles Canada (RNCan) est un service Internet qui s&#39;adresse principalement aux usagers et developpeurs d&#39;applications cartographiques en ligne. Ce service est compatible avec les normes et specifications du service de cartes Web, version 1.1.1., de l&#39;OpenGISe Consortium (OGC) (http://www.opengeospatial.org/).
+  L&#39;acces au SCW-Toporama est sans frais et sans restrictions selon les termes de la licence (http://www.geogratis.ca/geogratis/fr/licence.jsp). Une inscription au service est optionnelle, mais fortement recommandee afin de mieux connaetre les usagers, de les tenir informes et d&#39;ameliorer le service. Le formulaire d&#39;inscription est disponible sur le site Web de GeoGratis (http://www.geogratis.ca/) sous la rubrique Inscription e la liste des utilisateurs.
+  L&#39;utilisation de ce service permet de construire une carte personnalisee qui utilise les meilleures donnees de base du SST pour une echelle donnee. Ces donnees sont reputees pour etre precises et e jour. Elles sont regroupees sous 15 themes d&#39;informations construits, selon l&#39;echelle, e partir de CanVec 1/50 000, de la Base nationale de donnees topographiques (BNDT) 1/250 000 ou des donnees de base de l&#39;Atlas du Canada.</Abstract>
+        <KeywordList>
+          <Keyword>Toporama</Keyword>
+          <Keyword>SCW-Toporama</Keyword>
+          <Keyword>Topographie</Keyword>
+          <Keyword>Agglomeration</Keyword>
+          <Keyword>Regions peuplees</Keyword>
+          <Keyword>Aires designees</Keyword>
+          <Keyword>Constructions</Keyword>
+          <Keyword>Courbes de niveau</Keyword>
+          <Keyword>Hypsographie</Keyword>
+          <Keyword>elements hydrographiques</Keyword>
+          <Keyword>Hydrographie</Keyword>
+          <Keyword>Relief et formes</Keyword>
+          <Keyword>Reseau energetique</Keyword>
+          <Keyword>Reseau ferroviaire</Keyword>
+          <Keyword>Reseau routier</Keyword>
+          <Keyword>Structures</Keyword>
+          <Keyword>Sols satures d&#39;eau</Keyword>
+          <Keyword>Toponymie</Keyword>
+          <Keyword>Vegetation</Keyword>
+          <Keyword>Limites</Keyword>
+        </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/>
+  <ContactInformation>
+    <ContactPersonPrimary>
+      <ContactPerson>Service e la clientele de GeoGratis</ContactPerson>
+      <ContactOrganization>Gouvernement du Canada, Ressources naturelles Canada, Secteur des sciences de la Terre</ContactOrganization>
+    </ContactPersonPrimary>
+    <ContactAddress>
+        <AddressType>Adresse postale et physique</AddressType>
+        <Address>2144, rue King Ouest, bureau 010</Address>
+        <City>Sherbrooke</City>
+        <StateOrProvince>Quebec</StateOrProvince>
+        <PostCode>J1J 2E8</PostCode>
+        <Country>Canada</Country>
+    </ContactAddress>
+      <ContactVoiceTelephone>+01-819-564-4857 / 1-800-661-2638 (Canada et etats-Unis)</ContactVoiceTelephone>
+      <ContactFacsimileTelephone>+01-819-564-5698</ContactFacsimileTelephone>
+  <ContactElectronicMailAddress>geoginfo@rncan.gc.ca</ContactElectronicMailAddress>
+  </ContactInformation>
+  <Fees>Gratuit (ou sans frais)</Fees>
+  <AccessConstraints>L&#39;acces au SCW-Toporama est sans frais et sans restrictions selon les termes de la licence (http://www.geogratis.ca/geogratis/fr/licence.jsp). Une inscription au service est optionnelle, mais fortement recommandee afin de mieux connaetre les usagers, de les tenir informes et d&#39;ameliorer le service. Le formulaire d&#39;inscription est disponible sur le site Web de GeoGratis (http://www.geogratis.ca/) sous la rubrique Inscription e la liste des utilisateurs.</AccessConstraints>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>application/vnd.ogc.wms_xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/gif</Format>
+      <Format>image/wbmp</Format>
+      <Format>image/png; mode=24bit</Format>
+      <Format>image/jpeg</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/plain</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+    <DescribeLayer>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </DescribeLayer>
+    <GetLegendGraphic>
+      <Format>image/gif</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </GetLegendGraphic>
+    <GetStyles>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wms.sst-sw.rncan.gc.ca/wms/toporama_fr?"/></Get>
+        </HTTP>
+      </DCPType>
+    </GetStyles>
+  </Request>
+  <Exception>
+    <Format>application/vnd.ogc.se_xml</Format>
+    <Format>application/vnd.ogc.se_inimage</Format>
+    <Format>application/vnd.ogc.se_blank</Format>
+  </Exception>
+  <VendorSpecificCapabilities />
+  <UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="1" RemoteWFS="0"/>
+  <Layer>
+    <Name>SCW-Toporama</Name>
+    <Title>SCW-Toporama</Title>
+    <SRS>EPSG:3978</SRS>
+    <SRS>EPSG:2294</SRS>
+    <SRS>EPSG:2295</SRS>
+    <SRS>EPSG:3395</SRS>
+    <SRS>EPSG:3400</SRS>
+    <SRS>EPSG:3401</SRS>
+    <SRS>EPSG:4269</SRS>
+    <SRS>EPSG:4326</SRS>
+    <SRS>EPSG:26707</SRS>
+    <SRS>EPSG:26708</SRS>
+    <SRS>EPSG:26709</SRS>
+    <SRS>EPSG:26710</SRS>
+    <SRS>EPSG:26711</SRS>
+    <SRS>EPSG:26712</SRS>
+    <SRS>EPSG:26713</SRS>
+    <SRS>EPSG:26714</SRS>
+    <SRS>EPSG:26715</SRS>
+    <SRS>EPSG:26716</SRS>
+    <SRS>EPSG:26717</SRS>
+    <SRS>EPSG:26718</SRS>
+    <SRS>EPSG:26719</SRS>
+    <SRS>EPSG:26720</SRS>
+    <SRS>EPSG:26721</SRS>
+    <SRS>EPSG:26722</SRS>
+    <SRS>EPSG:26907</SRS>
+    <SRS>EPSG:26908</SRS>
+    <SRS>EPSG:26909</SRS>
+    <SRS>EPSG:26910</SRS>
+    <SRS>EPSG:26911</SRS>
+    <SRS>EPSG:26912</SRS>
+    <SRS>EPSG:26913</SRS>
+    <SRS>EPSG:26914</SRS>
+    <SRS>EPSG:26915</SRS>
+    <SRS>EPSG:26916</SRS>
+    <SRS>EPSG:26917</SRS>
+    <SRS>EPSG:26918</SRS>
+    <SRS>EPSG:26919</SRS>
+    <SRS>EPSG:26920</SRS>
+    <SRS>EPSG:26921</SRS>
+    <SRS>EPSG:26922</SRS>
+    <SRS>EPSG:32181</SRS>
+    <SRS>EPSG:32182</SRS>
+    <SRS>EPSG:32183</SRS>
+    <SRS>EPSG:32184</SRS>
+    <SRS>EPSG:32185</SRS>
+    <SRS>EPSG:32186</SRS>
+    <SRS>EPSG:32187</SRS>
+    <SRS>EPSG:32188</SRS>
+    <SRS>EPSG:32189</SRS>
+    <SRS>EPSG:32190</SRS>
+    <SRS>EPSG:32191</SRS>
+    <SRS>EPSG:32192</SRS>
+    <SRS>EPSG:32193</SRS>
+    <SRS>EPSG:32194</SRS>
+    <SRS>EPSG:32195</SRS>
+    <SRS>EPSG:32196</SRS>
+    <SRS>EPSG:32197</SRS>
+    <SRS>EPSG:32198</SRS>
+    <SRS>EPSG:41001</SRS>
+    <SRS>EPSG:42101</SRS>
+    <SRS>EPSG:42304</SRS>
+    <SRS>EPSG:53016</SRS>
+    <SRS>EPSG:54003</SRS>
+    <SRS>EPSG:54004</SRS>
+    <SRS>EPSG:54008</SRS>
+    <SRS>EPSG:54009</SRS>
+    <SRS>EPSG:54016</SRS>
+    <SRS>EPSG:54030</SRS>
+    <SRS>EPSG:102008</SRS>
+    <SRS>EPSG:102009</SRS>
+    <SRS>EPSG:102016</SRS>
+    <SRS>EPSG:102017</SRS>
+    <SRS>EPSG:102018</SRS>
+    <SRS>EPSG:102184</SRS>
+    <SRS>EPSG:102185</SRS>
+    <SRS>EPSG:900913</SRS>
+    <LatLonBoundingBox minx="-141" miny="41" maxx="-52" maxy="84" />
+    <BoundingBox SRS="EPSG:3978" minx="-2750565" miny="-936639" maxx="3583873" maxy="4654175" />
+    <Layer>
+    <Title>Toporama</Title>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>limites</Name>
+        <Title>Limites</Title>
+        <Abstract>La couche Limites represente les limites geopolitiques incluant des entites telles la frontiere internationale, les limites interprovinciales et territoriales et les zones economiques exclusives du Canada ainsi que les divisions politiques.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>vegetation</Name>
+        <Title>Vegetation</Title>
+        <Abstract>La couche Vegetation represente les regions boisees couvertes de buissons et/ou d&#39;arbres.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>agglomeration</Name>
+        <Title>Agglomeration</Title>
+        <Abstract>La couche Agglomeration represente les regions e forte densite de population oe les edifices sont si pres les uns des autres que, pour eviter l&#39;encombrement, elles sont representees par une surface les englobant.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aires_designees</Name>
+        <Title>Aires designees</Title>
+        <Abstract>La couche Aires designees represente les portions du territoire qui ont une utilisation ou une fonction bien precise (exemples : terrain de camping, marina, cimetiere, terrain de golf, etc.).</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>hydrographie</Name>
+        <Title>Hydrographie</Title>
+        <Abstract>La couche Hydrographie represente le reseau des eaux de surface uniquement.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>hypsographie</Name>
+        <Title>Hypsographie</Title>
+        <Abstract>La couche Hypsographie represente des points d&#39;elevation et des lignes non interrompues formees par des sommets de meme altitude et utilises pour decrire le relief du terrain. L&#39;elevation des points et des lignes est toujours fournie par rapport au niveau moyen des mers.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>sols_satures_eau</Name>
+        <Title>Sols satures d&#39;eau</Title>
+        <Abstract>La couche Sols satures d&#39;eau represente les grandes categories de milieux humides.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>relief_formes</Name>
+        <Title>Relief et formes</Title>
+        <Abstract>La couche Relief et formes represente certaines entites geographiques naturelles resultant de l&#39;action des glaciers et du pergelisol.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>constructions</Name>
+        <Title>Constructions</Title>
+        <Abstract>La couche Constructions represente les structures et les betiments anthropiques.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>elements_hydro</Name>
+        <Title>elements hydrographiques</Title>
+        <Abstract>La couche elements hydrographiques represente les entites naturelles ou artificielles situees sur ou e proximite des phenomenes hydrographiques.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>reseau_routier</Name>
+        <Title>Reseau routier</Title>
+        <Abstract>La couche Reseau routier represente les segments routiers incluant les traverses utilisees par les vehicules terrestres pour se deplacer.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>reseau_ferroviaire</Name>
+        <Title>Reseau ferroviaire</Title>
+        <Abstract>La couche Reseau ferroviaire represente differentes structures necessaires pour la circulation des trains et autres vehicules sur rails.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>regions_peuplees</Name>
+        <Title>Regions peuplees</Title>
+        <Abstract>La couche Regions peuplees represente les regions populeuses oe les edifices sont si pres les uns des autres que, pour eviter l&#39;encombrement, elles sont representees par un point.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>structures</Name>
+        <Title>Structures</Title>
+        <Abstract>La couche Structures represente les structures anthropiques incluant les ponts, les tunnels et les passerelles utilises par les vehicules terrestres, les trains ou les individus pour se deplacer.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>reseau_energetique</Name>
+        <Title>Reseau energetique</Title>
+        <Abstract>La couche Reseau energetique represente les principales structures utilisees pour le transport de l&#39;electricite, du petrole et du gaz.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>toponymie</Name>
+        <Title>Toponymie</Title>
+        <Abstract>La couche Toponymie represente les noms officiels attribues aux differents phenomenes topographiques.</Abstract>
+        <SRS>EPSG:4269</SRS>
+    </Layer>
+    </Layer>
+  </Layer>
+</Capability>
+</WMT_MS_Capabilities>

@@ -25,19 +25,33 @@
 							handleAs: 'xml'
 					};
 
+				//TODO this section is use to mimic response when work in localhost
+				var xmlhttp = new XMLHttpRequest();
+				if (url === 'http://wms.ess-ws.nrcan.gc.ca/wms/toporama_fr') {
+					xmlhttp.open('GET', 'wmsTest.xml', false);
+				} else if (url === 'http://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer') {
+					xmlhttp.open('GET', 'wmsEsriTest.xml', false);
+				} else if (url === 'http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS') {
+					xmlhttp.open('GET', 'wmtsEsriTest.xml', false);
+				}
+				xmlhttp.send();
+				var xmlDoc = xmlhttp.responseXML;
+				success(url, layerType, xmlDoc);
+
 			} else if (layerType === 2 || layerType === 4 || layerType === 5) {
 				options = { url: url,
 							content: { f: 'json' },
 							handleAs: 'json',
 							callbackParamName: 'callback'
 					};
-			}
 
-			options.load = function(response) {
-								success(url, layerType, response);
-							};
-			options.error = error;
-			esriRequest(options);
+				// TODO move it outside when wms is done testing
+				options.load = function(response) {
+					success(url, layerType, response);
+				};
+				options.error = error;
+				esriRequest(options);
+			}
 		};
 
 		getEsriRendererInfo = function(url, item) {

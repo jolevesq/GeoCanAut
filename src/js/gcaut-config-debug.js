@@ -195,6 +195,10 @@
 				location: locationPath + 'src/js/formats',
 				main: 'gcaut-esri'
 			}, {
+				name: 'gcaut-esriwms',
+				location: locationPath + 'src/js/formats',
+				main: 'gcaut-esriwms'
+			}, {
 				name: 'gcaut-wms',
 				location: locationPath + 'src/js/formats',
 				main: 'gcaut-wms'

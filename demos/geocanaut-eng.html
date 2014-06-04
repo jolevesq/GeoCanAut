@@ -302,12 +302,12 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 								<ul data-bind="template: { name: 'serviceLayers', foreach: $data.servLayers }"></ul>
 							</div>
 							<script id="selectLayers" type="text/html">
-								<button class="gcaut-button" tabindex="0" data-bind="click: $root.checkAll.bind($root, $data.servLayers(), true), visible: selectedType() === 5"><img class="gcaut-img-button" data-bind="attr: { src: $root.imgCheckAll }"></img></button>
-								<button class="gcaut-button" tabindex="0" data-bind="click: $root.checkAll.bind($root, $data.servLayers(), false), visible: selectedType() === 5"><img class="gcaut-img-button" data-bind="attr: { src: $root.imgUncheckAll }"></img></button>
+								<button class="gcaut-button" tabindex="0" data-bind="click: $root.checkAll.bind($root, $data.servLayers(), true), visible: selectedType() === 5 || $root.selectedType() === 3"><img class="gcaut-img-button" data-bind="attr: { src: $root.imgCheckAll }"></img></button>
+								<button class="gcaut-button" tabindex="0" data-bind="click: $root.checkAll.bind($root, $data.servLayers(), false), visible: selectedType() === 5 || $root.selectedType() === 3"><img class="gcaut-img-button" data-bind="attr: { src: $root.imgUncheckAll }"></img></button>
 							</script>
 							<script id="serviceLayers" type="text/html">
 								<li>
-									<input type="checkbox" data-bind="click: $root.cascadeCheck.bind($root, $parents), visible: $root.selectedType() === 5, checked: isChecked, attr: { id: $data.name }"></input>
+									<input type="checkbox" data-bind="click: $root.cascadeCheck.bind($root, $parents), visible: $root.selectedType() === 5 || $root.selectedType() === 3, checked: isChecked, attr: { id: $data.name }"></input>
 									<label data-bind="text: name, attr: { for: $data.name }, style: { 'font-weight': isUse() ? 'bold' : 'normal' }"></label>
 									<ul data-bind="template: { name: 'serviceLayers', foreach: $data.servLayers }"></ul>
 								</li>

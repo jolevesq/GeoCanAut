@@ -14,10 +14,11 @@
 			'gcaut-i18n',
 			'gcaut-func',
 			'gcaut-esri',
+			'gcaut-esriwms',
 			'gcaut-wms',
 			'gcaut-gismap',
 			'gcaut-gisservinfo'
-	], function($aut, ko, jqUI, i18n, gcautFunc, esriData, wmsData, gisM, gisServInfo) {
+	], function($aut, ko, jqUI, i18n, gcautFunc, esriData, esriwmsData, wmsData, gisM, gisServInfo) {
 		var initialize,
 			clean,
 			checkParentlayers,
@@ -301,6 +302,35 @@
 								_self.updateLayers(servLayers, list, type);
 							}
 						}
+					} else if (type === 3) {
+						// set options
+						var layerinfo,
+							layerinfos = [],
+							vislayers = [],
+							options = {};
+
+						while (len--) {
+							layer = layers[len];
+
+							if (layer.isChecked()) {
+								name = layer.name;
+								layerinfo = {};
+								vislayers.push(name);
+								layerinfo.name = name;
+								layerinfo.title = layer.id;
+								layerinfos.push(layerinfo);
+							}
+						}
+
+						options.layerinfos = layerinfos;
+						options.visiblelayers = vislayers;
+
+						layer = layers[0];
+						_self.bases.push({ label: layer.fullname,
+										id: gcautFunc.getUUID(),
+										type: layer.type,
+										url: layer.url,
+										options: options });
 					}
 				};
 
@@ -401,7 +431,8 @@
 
 				// create the inside of the extent dialog window
 				_self.setExtent = function(type) {
-					var size = { width:_self.mapWidthValue(),
+					var extent = [],
+						size = { width:_self.mapWidthValue(),
 									height: _self.mapHeightValue()
 							},
 						holder = [_self.setExtentMinX,
@@ -414,10 +445,25 @@
 					_self.isExtentDialogOpen(true);
 					_self.hiddenMap('');
 
+					// set extent in function of type
+					if (type === 'init') {
+						extent = [_self.initExtentMinX(),
+									_self.initExtentMinY(),
+									_self.initExtentMaxX(),
+									_self.initExtentMaxY()];
+					} else {
+						extent = [_self.maxExtentMinX(),
+									_self.maxExtentMinY(),
+									_self.maxExtentMaxX(),
+									_self.maxExtentMaxY()];
+					}
+
 					// create the map
 					gisM.createMap('map_setExtent',
 									_self.selectBaseLayerType().id,
-									_self.bases()[0].url,
+									_self.bases()[0],
+									extent,
+									_self.selectMapSR().id,
 									size,
 									holder);
 				};
@@ -427,7 +473,7 @@
 					var array;
 
 					if (id === 1) {
-						array = localStorage.servnameWMST.split(';');
+						array = localStorage.servnameWMTS.split(';');
 					} else if (id === 2)  {
 						array = localStorage.servnameCacheREST.split(';');
 					} else if (id === 3)  {
@@ -510,6 +556,15 @@
 					} else {
 						if (type === 2 || type === 4 || type === 5) {
 							esriData.readInfo(sender, _self, url, type, category);
+						} else if (type === 3) {
+							// check to see if it is OGC or esri service
+							if (typeof $aut(sender.getElementsByTagName('WMS_Capabilities')).attr('xmlns:esri_wms') !== 'undefined') {
+								esriwmsData.readInfoWMS(sender, _self, url, type, category);
+							} else {
+								wmsData.readInfo(sender, _self, url, type, category);
+							}
+						} else if (type === 1) {
+							esriwmsData.readInfoWMTS(sender, _self, url, type);
 						}
 
 						// check duplicate in service array and copy to localstorage
@@ -527,7 +582,7 @@
 							} else if (type === 2)  {
 								localStorage.setItem('servnameCacheREST', addUrl);
 							} else if (type === 3)  {
-								localStorage.setItem('servnameWMTS', addUrl);
+								localStorage.setItem('servnameWMS', addUrl);
 							} else if (type === 4)  {
 								localStorage.setItem('servnameDynamicREST', addUrl);
 							} else if (type === 5)  {
